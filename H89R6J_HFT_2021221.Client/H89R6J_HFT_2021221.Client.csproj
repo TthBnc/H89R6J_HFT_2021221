@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\H89R6J_HFT_2021221.Data\H89R6J_HFT_2021221.Data.csproj" />
     <ProjectReference Include="..\H89R6J_HFT_2021221.Models\H89R6J_HFT_2021221.Models.csproj" />
   </ItemGroup>
 
