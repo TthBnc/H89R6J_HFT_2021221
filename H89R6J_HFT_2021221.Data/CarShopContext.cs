@@ -10,7 +10,7 @@ namespace H89R6J_HFT_2021221.Data
 {
     public class CarShopContext :DbContext
     {
-        public virtual DbSet<Brand> MyProperty { get; set; }
+        public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Engine> Engines { get; set; }
 

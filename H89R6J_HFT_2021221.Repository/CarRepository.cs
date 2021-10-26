@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace H89R6J_HFT_2021221.Repository
 {
-    //kell a carshopcontext és igazándiból a benne lévő dolgokat
-    //car, brand és mittudomén kell
     class CarRepository : ICarRepository
     {
         CarShopContext context;

@@ -1,0 +1,49 @@
+﻿using H89R6J_HFT_2021221.Data;
+using H89R6J_HFT_2021221.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace H89R6J_HFT_2021221.Repository
+{
+    class EngineRepository : IEngineRepository
+    {
+        CarShopContext context;
+        public EngineRepository(CarShopContext ctx)
+        {
+            context = ctx;
+        }
+   
+        public void Create(Engine engine)
+        {
+            context.Add(engine);
+            context.SaveChanges();
+        }
+
+        public Engine ReadOne(int id)
+        {
+            return context
+                .Engines
+                .FirstOrDefault(e => e.Id == id);
+        }
+        public IQueryable<Engine> ReadAll()
+        {
+            return context.Engines;
+        }
+
+        public void Update(Engine engine)
+        {
+            Engine old = ReadOne(engine.Id);
+            //milyen kapcsolat van az engine és auto között??
+            //ha egy engine több autoban van, akkor jav, mert itt a CarId-t is frissíteni kellene
+            //old.CarId = 
+        }
+
+        public void Delete(int engineId)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
