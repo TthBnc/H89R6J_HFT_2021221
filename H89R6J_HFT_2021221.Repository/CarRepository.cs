@@ -39,6 +39,7 @@ namespace H89R6J_HFT_2021221.Repository
             old.Model = car.Model;
             old.BasePrice = car.BasePrice;
             old.BrandId = car.BrandId;
+            
 
             context.SaveChanges();
         }

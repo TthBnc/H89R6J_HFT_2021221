@@ -39,11 +39,17 @@ namespace H89R6J_HFT_2021221.Repository
             //milyen kapcsolat van az engine és auto között??
             //ha egy engine több autoban van, akkor jav, mert itt a CarId-t is frissíteni kellene
             //old.CarId = 
+            old.Type = engine.Type;
+            old.Horsepower = engine.Horsepower;
+            old.CarId = engine.CarId;
+
+            context.SaveChanges();
         }
 
         public void Delete(int engineId)
         {
-            throw new NotImplementedException();
+            context.Engines.Remove(ReadOne(engineId));
+            context.SaveChanges();
         }
     }
 }
