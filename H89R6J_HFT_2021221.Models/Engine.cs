@@ -18,11 +18,14 @@ namespace H89R6J_HFT_2021221.Models
         [MaxLength(100)]
         [Required]
         public string Type { get; set; } //Diesel, Petrol, Hybrid, Electric
+                                         //enum?
 
         public int Horsepower { get; set; }
 
         [NotMapped]
         public virtual Car Car { get; set; }
+        
+        [ForeignKey(nameof(Car))]
         public int CarId { get; set; }
 
     }

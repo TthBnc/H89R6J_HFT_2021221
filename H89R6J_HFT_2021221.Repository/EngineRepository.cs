@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace H89R6J_HFT_2021221.Repository
 {
-    class EngineRepository : IEngineRepository
+    class EngineRepository : IDefaultRepository<Engine>
     {
         CarShopContext context;
         public EngineRepository(CarShopContext ctx)

@@ -23,6 +23,8 @@ namespace H89R6J_HFT_2021221.Models
 
         [NotMapped]
         public virtual Brand Brand { get; set; }
+
+        [ForeignKey(nameof(Brand))]
         public int BrandId { get; set; }
 
         public virtual ICollection<Engine> Engines { get; set; }
