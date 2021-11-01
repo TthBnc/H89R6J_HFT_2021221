@@ -27,11 +27,9 @@ namespace H89R6J_HFT_2021221.Models
         [ForeignKey(nameof(Brand))]
         public int BrandId { get; set; }
 
-        public virtual ICollection<Engine> Engines { get; set; }
+        [NotMapped]
+        public virtual Engine Engine { get; set; }
 
-        public Car()
-        {
-            Engines = new HashSet<Engine>();
-        }
+
     }
 }

@@ -65,7 +65,7 @@ namespace H89R6J_HFT_2021221.Data
             modelBuilder.Entity<Engine>(entity =>
             {
                 entity.HasOne(engine => engine.Car)
-                    .WithMany(car => car.Engines)
+                    .WithOne(car => car.Engine)
                     .HasForeignKey(engine => engine.CarId)
                     .OnDelete(DeleteBehavior.ClientSetNull);
             });
