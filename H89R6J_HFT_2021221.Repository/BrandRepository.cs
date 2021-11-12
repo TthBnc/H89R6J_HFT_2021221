@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace H89R6J_HFT_2021221.Repository
 {
-    class BrandRepository : IDefaultRepository<Brand>
+    public class BrandRepository : IDefaultRepository<Brand>
     {
         CarShopContext context;
 
