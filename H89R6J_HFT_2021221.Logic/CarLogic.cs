@@ -10,29 +10,49 @@ namespace H89R6J_HFT_2021221.Logic
 {
     public class CarLogic : ICarLogic
     {
-        IDefaultRepository<Car> repo;
-        public CarLogic(IDefaultRepository<Car> repository)
+        IDefaultRepository<Car> cRepo;
+        IDefaultRepository<Brand> bRepo;
+        public CarLogic(IDefaultRepository<Car> cRepo,
+            IDefaultRepository<Brand> bRepo)
         {
-            this.repo = repository;
+            this.cRepo = cRepo;
+            this.bRepo = bRepo;
+        }
+        public double AveragePrice()
+        {
+            return cRepo
+                .ReadAll()
+                .Average(c => c.BasePrice) ?? 0;
+        }
+
+        public IEnumerable<KeyValuePair<string, double>> AveragePBB()
+        {
+            return from c in cRepo.ReadAll()
+                   join b in bRepo.ReadAll()
+                   on c.BrandId equals b.Id
+                   group c by b.Name into g
+                   select new KeyValuePair<string, double>(
+                       g.Key, g.Average(car => car.BasePrice) ?? 0);
         }
 
         public void Create(Car car)
         {
-            repo.Create(car);
+            cRepo.Create(car);
         }
-        public IQueryable<Car> ReadAll()
+
+        public IEnumerable<Car> ReadAll()
         {
-            return repo.ReadAll();
+            return cRepo.ReadAll();
         }
 
         public void Update(Car car)
         {
-            repo.Update(car);
+            cRepo.Update(car);
         }
 
         public void Delete(int carId)
         {
-            repo.Delete(carId);
+            cRepo.Delete(carId);
         }
     }
 }
