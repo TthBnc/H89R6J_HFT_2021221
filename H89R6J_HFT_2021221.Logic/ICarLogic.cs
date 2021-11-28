@@ -11,6 +11,8 @@ namespace H89R6J_HFT_2021221.Logic
     {
         public double AveragePrice();
         IEnumerable<KeyValuePair<string, double>> AveragePBB();
+        IEnumerable<KeyValuePair<string, double>> AveragePriceByEngineTypes();
+        IEnumerable<KeyValuePair<string, double>> EngineTypeUsage();
         void Create(Car car);
         IEnumerable<Car> ReadAll();
         void Update(Car car);

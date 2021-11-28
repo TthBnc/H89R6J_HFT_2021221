@@ -17,9 +17,7 @@ namespace H89R6J_HFT_2021221.Models
 
         [MaxLength(100)]
         [Required]
-        public string Type { get; set; } //Diesel, Petrol, Hybrid, Electric
-                                         //enum?
-
+        public string Type { get; set; } //Diesel, Petrol, Hybrid, Electric..
         public int Horsepower { get; set; }
 
         [NotMapped]

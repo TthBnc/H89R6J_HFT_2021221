@@ -12,11 +12,14 @@ namespace H89R6J_HFT_2021221.Logic
     {
         IDefaultRepository<Car> cRepo;
         IDefaultRepository<Brand> bRepo;
+        IDefaultRepository<Engine> eRepo;
         public CarLogic(IDefaultRepository<Car> cRepo,
-            IDefaultRepository<Brand> bRepo)
+            IDefaultRepository<Brand> bRepo,
+            IDefaultRepository<Engine> eRepo)
         {
             this.cRepo = cRepo;
             this.bRepo = bRepo;
+            this.eRepo = eRepo;
         }
         public double AveragePrice()
         {
@@ -29,14 +32,36 @@ namespace H89R6J_HFT_2021221.Logic
         {
             return from c in cRepo.ReadAll()
                    join b in bRepo.ReadAll()
-                   on c.BrandId equals b.Id
+                   on c.Brand.Id equals b.Id
                    group c by b.Name into g
-                   select new KeyValuePair<string, double>(
-                       g.Key, g.Average(car => car.BasePrice) ?? 0);
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Average(car => car.BasePrice) ?? 0);
+        }
+        public IEnumerable<KeyValuePair<string, double>> AveragePriceByEngineTypes()
+        {
+            return from c in cRepo.ReadAll()
+                   join e in eRepo.ReadAll()
+                   on c.Engine.Id equals e.Id
+                   group c by e.Type into g
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Average(car => car.BasePrice) ?? 0);
+        }
+
+        public IEnumerable<KeyValuePair<string, double>> EngineTypeUsage()
+        {
+            return from c in cRepo.ReadAll()
+                   join e in eRepo.ReadAll()
+                   on c.Engine.Id equals e.Id
+                   group c by e.Type into g
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Count());
+
         }
 
         public void Create(Car car)
         {
+            if (car.BasePrice < 0)
+                throw new ArgumentException("The car can't have a negative price!");
             cRepo.Create(car);
         }
 

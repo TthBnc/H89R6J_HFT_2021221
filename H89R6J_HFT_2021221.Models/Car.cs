@@ -29,6 +29,7 @@ namespace H89R6J_HFT_2021221.Models
 
         [NotMapped]
         public virtual Engine Engine { get; set; }
+        public int EngineId { get; set; }
 
 
     }
