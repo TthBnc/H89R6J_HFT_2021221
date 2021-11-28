@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace H89R6J_HFT_2021221.Repository
 {
-    interface IEngineRepository
+    public interface IEngineRepository
     {
         void Create(Engine engine);
         Engine ReadOne(int id);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace H89R6J_HFT_2021221.Repository
 {
-    interface ICarRepository
+    public interface ICarRepository
     {
         void Create(Car car);
         Car ReadOne(int id);

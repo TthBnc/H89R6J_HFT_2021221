@@ -26,9 +26,17 @@ namespace H89R6J_HFT_2021221.Endpoint
             services.AddTransient<IBrandLogic, BrandLogic>();
             services.AddTransient<IEngineLogic, EngineLogic>();
 
+            services.AddTransient<Car, Car>();
+            services.AddTransient<Brand, Brand>();
+            services.AddTransient<Engine, Engine>();
+
             services.AddTransient<IDefaultRepository<Car>, CarRepository>();
             services.AddTransient<IDefaultRepository<Brand>, BrandRepository>();
             services.AddTransient<IDefaultRepository<Engine>, EngineRepository>();
+
+            //services.AddTransient<ICarRepository, CarRepository>();
+            //services.AddTransient<IBrandRepository, BrandRepository>();
+            //services.AddTransient<IEngineRepository, EngineRepository>();
 
             services.AddTransient<CarShopContext, CarShopContext>();
         }

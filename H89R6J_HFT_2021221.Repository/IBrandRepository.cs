@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace H89R6J_HFT_2021221.Repository
 {
-    interface IBrandRepository
+    public interface IBrandRepository
     {
         void Create(Brand brand);
         Brand ReadOne(int id);
