@@ -53,8 +53,8 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
         }
 
         // DELETE /car/{carId}
-        [HttpDelete]
-        public void DeleteOne(int carId)
+        [HttpDelete("{id}")]
+        public void DeleteOne([FromRoute] int carId)
         {
             logic.Delete(carId);
         }

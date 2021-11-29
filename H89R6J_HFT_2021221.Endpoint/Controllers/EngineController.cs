@@ -28,29 +28,32 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
             return logic.ReadAll();
         }
 
-        // GET api/<EngineController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/<EngineController>/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST api/<EngineController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void CreateOne([FromBody] Engine value)
         {
+            logic.Create(value);
         }
 
         // PUT api/<EngineController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void UpdateOne([FromBody] Engine value)
         {
+            logic.Update(value);
         }
 
         // DELETE api/<EngineController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteOne(int id)
         {
+            logic.Delete(id);
         }
     }
 }

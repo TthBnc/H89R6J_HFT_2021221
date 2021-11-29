@@ -30,8 +30,18 @@ namespace H89R6J_HFT_2021221.Logic
         #region non-CRUDs
         public IEnumerable<KeyValuePair<string, double>> AveragePBB()
         {
+
+            var bRead = bRepo.ReadAll();
+
+            //return from c in cRepo.ReadAll()
+            //       join b in bRepo.ReadAll()
+            //       on c.Brand.Id equals b.Id
+            //       group c by b.Name into g
+            //       select new KeyValuePair<string, double>
+            //       (g.Key, g.Average(car => car.BasePrice) ?? 0);
+
             return from c in cRepo.ReadAll()
-                   join b in bRepo.ReadAll()
+                   join b in bRead
                    on c.Brand.Id equals b.Id
                    group c by b.Name into g
                    select new KeyValuePair<string, double>

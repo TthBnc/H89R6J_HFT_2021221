@@ -49,7 +49,7 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
         }
 
         // DELETE api/<BrandController>/5
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             logic.Delete(id);
