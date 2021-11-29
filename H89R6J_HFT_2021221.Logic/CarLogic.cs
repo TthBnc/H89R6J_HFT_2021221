@@ -27,7 +27,7 @@ namespace H89R6J_HFT_2021221.Logic
                 .ReadAll()
                 .Average(c => c.BasePrice) ?? 0;
         }
-
+        #region non-CRUDs
         public IEnumerable<KeyValuePair<string, double>> AveragePBB()
         {
             return from c in cRepo.ReadAll()
@@ -57,7 +57,7 @@ namespace H89R6J_HFT_2021221.Logic
                    (g.Key, g.Count());
 
         }
-
+        #endregion
         public void Create(Car car)
         {
             if (car.BasePrice < 0)

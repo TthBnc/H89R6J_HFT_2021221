@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using H89R6J_HFT_2021221.Logic;
+using H89R6J_HFT_2021221.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,36 +14,45 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
     [ApiController]
     public class BrandController : ControllerBase
     {
+
+        IBrandLogic logic;
+        public BrandController(IBrandLogic lc)
+        {
+            this.logic = lc;
+        }
         // GET: api/<BrandController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Brand> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return logic.ReadAll();
         }
 
-        // GET api/<BrandController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/<BrandController>/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST api/<BrandController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void AddOne([FromBody] Brand value)
         {
+            logic.Create(value);
         }
 
         // PUT api/<BrandController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void UpdateOne([FromBody] Brand value)
         {
+            logic.Update(value);
         }
 
         // DELETE api/<BrandController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public void Delete(int id)
         {
+            logic.Delete(id);
         }
     }
 }

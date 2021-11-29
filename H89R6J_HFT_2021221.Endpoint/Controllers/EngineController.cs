@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using H89R6J_HFT_2021221.Logic;
+using H89R6J_HFT_2021221.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,18 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
     [ApiController]
     public class EngineController : ControllerBase
     {
+        IEngineLogic logic;
+
+        public EngineController(IEngineLogic lc)
+        {
+            this.logic = lc;
+        }
+
         // GET: api/<EngineController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Engine> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return logic.ReadAll();
         }
 
         // GET api/<EngineController>/5

@@ -30,27 +30,31 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
         }
 
         // GET api/<CarController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[HttpGet("{id}")]
+        //public Car Get(int id)
+        //{
+        //    return logic;
+        //}
 
-        // POST api/<CarController>
+        // POST /car
+        //Create
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void AddOne([FromBody] Car value)
         {
+            logic.Create(value);
         }
 
-        // PUT api/<CarController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT /car
+        //Update
+        [HttpPut]
+        public void EditOne([FromBody] Car value)
         {
+            logic.Update(value);
         }
 
         // DELETE /car/{carId}
-        [HttpDelete("{carId}")]
-        public void Delete([FromRoute]int carId)
+        [HttpDelete]
+        public void DeleteOne(int carId)
         {
             logic.Delete(carId);
         }
