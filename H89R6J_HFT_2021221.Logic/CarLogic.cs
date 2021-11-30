@@ -38,18 +38,8 @@ namespace H89R6J_HFT_2021221.Logic
         #region non-CRUDs
         public IEnumerable<KeyValuePair<string, double>> AveragePBB()
         {
-
-            var bRead = bRepo.ReadAll();
-
-            //return from c in cRepo.ReadAll()
-            //       join b in bRepo.ReadAll()
-            //       on c.Brand.Id equals b.Id
-            //       group c by b.Name into g
-            //       select new KeyValuePair<string, double>
-            //       (g.Key, g.Average(car => car.BasePrice) ?? 0);
-
-            return from c in cRepo.ReadAll()
-                   join b in bRead
+            return from c in cRepo.ReadAll().ToList()
+                   join b in bRepo.ReadAll().ToList()
                    on c.Brand.Id equals b.Id
                    group c by b.Name into g
                    select new KeyValuePair<string, double>
@@ -57,8 +47,8 @@ namespace H89R6J_HFT_2021221.Logic
         }
         public IEnumerable<KeyValuePair<string, double>> AveragePriceByEngineTypes()
         {
-            return from c in cRepo.ReadAll()
-                   join e in eRepo.ReadAll()
+            return from c in cRepo.ReadAll().ToList()
+                   join e in eRepo.ReadAll().ToList()
                    on c.Engine.Id equals e.Id
                    group c by e.Type into g
                    select new KeyValuePair<string, double>
@@ -67,8 +57,8 @@ namespace H89R6J_HFT_2021221.Logic
 
         public IEnumerable<KeyValuePair<string, double>> EngineTypeUsage()
         {
-            return from c in cRepo.ReadAll()
-                   join e in eRepo.ReadAll()
+            return from c in cRepo.ReadAll().ToList()
+                   join e in eRepo.ReadAll().ToList()
                    on c.Engine.Id equals e.Id
                    group c by e.Type into g
                    select new KeyValuePair<string, double>

@@ -1,5 +1,6 @@
-﻿using H89R6J_HFT_2021221.Data;
+﻿using H89R6J_HFT_2021221.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace H89R6J_HFT_2021221.Client
@@ -8,9 +9,13 @@ namespace H89R6J_HFT_2021221.Client
     {
         static void Main(string[] args)
         {
-            CarShopContext ctx = new CarShopContext();
+            System.Threading.Thread.Sleep(8000);
 
-            var res1 = ctx.Cars.ToList();
+            RestService rest = new RestService("http://localhost:44728");
+
+            var brands = rest.Get<Brand>("brand");
+
+            var avgprice = rest.GetSingle<KeyValuePair<string, double>>("stat/averagepbb");
             ;
         }
     }

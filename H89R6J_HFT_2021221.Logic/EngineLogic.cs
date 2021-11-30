@@ -23,8 +23,8 @@ namespace H89R6J_HFT_2021221.Logic
 
         public IEnumerable<KeyValuePair<string, int?>> DieselCostHigherThan4k()
         {
-            return from c in cRepo.ReadAll()
-                   join e in eRepo.ReadAll()
+            return from c in cRepo.ReadAll().ToList()
+                   join e in eRepo.ReadAll().ToList()
                    on c.Engine.Id equals e.Id
                    where c.BasePrice >= 3500
                    select new KeyValuePair<string, int?>

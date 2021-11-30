@@ -21,8 +21,8 @@ namespace H89R6J_HFT_2021221.Logic
 
         public IEnumerable<KeyValuePair<string, double>> BrandPopularity()
         {
-            return from c in cRepo.ReadAll()
-                   join b in bRepo.ReadAll()
+            return from c in cRepo.ReadAll().ToList()
+                   join b in bRepo.ReadAll().ToList()
                    on c.Brand.Id equals b.Id
                    group c by b.Name into g
                    select new KeyValuePair<string, double>
