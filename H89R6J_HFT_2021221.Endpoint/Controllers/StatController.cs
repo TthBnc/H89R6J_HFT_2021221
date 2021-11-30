@@ -56,5 +56,18 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
         {
             return el.DieselCostHigherThan4k();
         }
+
+        [HttpGet]
+        public double AveragePrice()
+        {
+            return cl.AveragePrice();
+        }
+
+        [HttpGet]
+        public double HighestPrice()
+        {
+            return cl.HighestPrice();
+        }
+
     }
 }

@@ -27,6 +27,14 @@ namespace H89R6J_HFT_2021221.Logic
                 .ReadAll()
                 .Average(c => c.BasePrice) ?? 0;
         }
+
+        public double HighestPrice()
+        {
+            return cRepo
+                .ReadAll()
+                .Max(c => c.BasePrice) ?? 0;
+        }
+
         #region non-CRUDs
         public IEnumerable<KeyValuePair<string, double>> AveragePBB()
         {

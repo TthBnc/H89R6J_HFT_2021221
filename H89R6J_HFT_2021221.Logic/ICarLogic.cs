@@ -9,7 +9,8 @@ namespace H89R6J_HFT_2021221.Logic
 {
     public interface ICarLogic
     {
-        public double AveragePrice();
+        double HighestPrice();
+        double AveragePrice();
         IEnumerable<KeyValuePair<string, double>> AveragePBB();
         IEnumerable<KeyValuePair<string, double>> AveragePriceByEngineTypes();
         IEnumerable<KeyValuePair<string, double>> EngineTypeUsage();

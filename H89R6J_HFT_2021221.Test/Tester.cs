@@ -198,14 +198,22 @@ namespace H89R6J_HFT_2021221.Test
         #endregion
         #region Other tests
         [Test]
-        public void Random1()
+        public void AveragePrice_Test()
         {
+            var avg = carLogic.AveragePrice();
 
+            //avg = 4500
+
+            Assert.That(avg, Is.EqualTo(4500));
         }
         [Test]
-        public void Random2()
+        public void HighestPrice_Test()
         {
+            var result = carLogic.HighestPrice();
 
+            //result = 7000
+
+            Assert.That(result, Is.EqualTo(7000));
         }
         #endregion
     }
