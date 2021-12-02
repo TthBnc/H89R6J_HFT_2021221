@@ -78,6 +78,11 @@ namespace H89R6J_HFT_2021221.Logic
             return cRepo.ReadAll();
         }
 
+        public Car ReadOne(int id)
+        {
+            return cRepo.ReadOne(id);
+        }
+
         public void Update(Car car)
         {
             cRepo.Update(car);

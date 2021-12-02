@@ -46,6 +46,10 @@ namespace H89R6J_HFT_2021221.Logic
             return eRepo.ReadAll();
         }
 
+        public Engine ReadOne(int id)
+        {
+            return eRepo.ReadOne(id);
+        }
         public void Update(Engine engine)
         {
             eRepo.Update(engine);

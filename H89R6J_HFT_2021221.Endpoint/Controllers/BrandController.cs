@@ -27,12 +27,11 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
             return logic.ReadAll();
         }
 
-        //// GET api/<BrandController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpGet("{id}")]
+        public Brand GetOne(int id)
+        {
+            return logic.ReadOne(id);
+        }
 
         // POST api/<BrandController>
         [HttpPost]

@@ -43,6 +43,11 @@ namespace H89R6J_HFT_2021221.Logic
             return bRepo.ReadAll();
         }
 
+        public Brand ReadOne(int id)
+        {
+            return bRepo.ReadOne(id);
+        }
+
         public void Update(Brand brand)
         {
             bRepo.Update(brand);

@@ -29,12 +29,12 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
             return logic.ReadAll();
         }
 
-        // GET api/<CarController>/5
-        //[HttpGet("{id}")]
-        //public Car Get(int id)
-        //{
-        //    return logic;
-        //}
+        //GET /car/{id}
+        [HttpGet("{id}")]
+        public Car GetOne(int id)
+        {
+            return logic.ReadOne(id);
+        }
 
         // POST /car
         //Create

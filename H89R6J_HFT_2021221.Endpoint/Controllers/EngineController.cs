@@ -28,12 +28,11 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
             return logic.ReadAll();
         }
 
-        //// GET api/<EngineController>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpGet("{id}")]
+        public Engine GetOne(int id)
+        {
+            return logic.ReadOne(id);
+        }
 
         // POST api/<EngineController>
         [HttpPost]

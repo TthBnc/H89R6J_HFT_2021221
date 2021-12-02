@@ -16,7 +16,16 @@ namespace H89R6J_HFT_2021221.Data
 
         public CarShopContext()
         {
-            Database.EnsureCreated();
+            try
+            {
+                Database.EnsureCreated();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message); ;
+            }
+
         }
         public CarShopContext(DbContextOptions<CarShopContext> options)
             : base(options)

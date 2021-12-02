@@ -16,6 +16,7 @@ namespace H89R6J_HFT_2021221.Logic
         IEnumerable<KeyValuePair<string, double>> EngineTypeUsage();
         void Create(Car car);
         IEnumerable<Car> ReadAll();
+        Car ReadOne(int id);
         void Update(Car car);
         void Delete(int carId);
     }

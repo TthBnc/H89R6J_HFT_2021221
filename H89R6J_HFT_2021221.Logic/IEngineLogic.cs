@@ -9,6 +9,7 @@ namespace H89R6J_HFT_2021221.Logic
         void Create(Engine engine);
         void Delete(int engineId);
         IEnumerable<Engine> ReadAll();
+        Engine ReadOne(int id);
         void Update(Engine engine);
     }
 }
