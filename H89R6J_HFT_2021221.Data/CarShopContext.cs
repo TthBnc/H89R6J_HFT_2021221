@@ -25,7 +25,6 @@ namespace H89R6J_HFT_2021221.Data
 
                 Console.WriteLine(e.Message); ;
             }
-
         }
         public CarShopContext(DbContextOptions<CarShopContext> options)
             : base(options)
