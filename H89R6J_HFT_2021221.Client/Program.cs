@@ -75,7 +75,7 @@ namespace H89R6J_HFT_2021221.Client
         {
             Console.Clear();
             RestService rest = new RestService("http://localhost:44728");
-            Console.WriteLine("Select what to CREATE: Brand/Car/Driver");
+            Console.WriteLine("Select what to CREATE: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
             if(selection.ToUpper() == "BRAND")
@@ -119,7 +119,7 @@ namespace H89R6J_HFT_2021221.Client
         {
             Console.Clear();
             RestService rest = new RestService("http://localhost:44728");
-            Console.WriteLine("Select what to READ: Brand/Car/Driver");
+            Console.WriteLine("Select what to READ: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
             if (selection.ToUpper().Equals("BRAND"))
@@ -159,7 +159,7 @@ namespace H89R6J_HFT_2021221.Client
         {
             Console.Clear();
             RestService rest = new RestService("http://localhost:44728");
-            Console.WriteLine("Select what to UPDATE: Brand/Car/Driver");
+            Console.WriteLine("Select what to UPDATE: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
             if (selection.ToUpper().Equals("BRAND"))
@@ -206,7 +206,7 @@ namespace H89R6J_HFT_2021221.Client
         {
             Console.Clear();
             RestService rest = new RestService("http://localhost:44728");
-            Console.WriteLine("Select what to DELETE: Brand/Car/Driver");
+            Console.WriteLine("Select what to DELETE: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
             if (selection.ToUpper().Equals("BRAND"))

@@ -26,7 +26,7 @@ namespace H89R6J_HFT_2021221.Logic
             return from c in cRepo.ReadAll().ToList()
                    join e in eRepo.ReadAll().ToList()
                    on c.Engine.Id equals e.Id
-                   where c.BasePrice >= 3500
+                   where c.BasePrice >= 3500 && e.Type == "Diesel"
                    select new KeyValuePair<string, int?>
                    (e.Type, c.BasePrice);
 
