@@ -16,7 +16,7 @@ namespace H89R6J_HFT_2021221.WpfClient
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "swagger")
+        public RestService(string baseurl, string pingableEndpoint = "car")
         {
             bool isOk = false;
             do
