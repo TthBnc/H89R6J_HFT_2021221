@@ -17,6 +17,7 @@ namespace H89R6J_HFT_2021221.Repository
         }
         public void Create(Car car)
         {
+            //car.Id = ReadAll().Count() + 1;
             context.Cars.Add(car);
             context.SaveChanges();
         }

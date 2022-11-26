@@ -18,6 +18,7 @@ namespace H89R6J_HFT_2021221.Repository
    
         public void Create(Engine engine)
         {
+            //engine.Id = ReadAll().Count() + 1;
             context.Add(engine);
             context.SaveChanges();
         }

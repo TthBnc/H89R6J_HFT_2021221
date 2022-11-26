@@ -15,6 +15,8 @@ namespace H89R6J_HFT_2021221.WpfClient
     public class MainWindowViewModel : ObservableRecipient
     {
         public RestCollection<Car> Cars { get; set; }
+        public RestCollection<Brand> Brands { get; set; }
+        public RestCollection<Engine> Engines { get; set; }
 
 
         private Car selectedCar;
@@ -28,7 +30,9 @@ namespace H89R6J_HFT_2021221.WpfClient
                 {
                     selectedCar = new Car()
                     {
-                        Id = value.Id,
+                        //Id = value.Id,
+                        //Brand = Brands.Where(x => x.Id == value.BrandId).First(),
+                        //BasePrice = value.BasePrice,
                         Model = value.Model,
                     };
                     OnPropertyChanged();
@@ -59,6 +63,9 @@ namespace H89R6J_HFT_2021221.WpfClient
             if (!IsInDesignMode)
             {
                 Cars = new RestCollection<Car>("http://localhost:44728/", "car");
+                Brands = new RestCollection<Brand>("http://localhost:44728/", "brand");
+                Engines = new RestCollection<Engine>("http://localhost:44728/", "engine");
+                
                 CreateCarCommand = new RelayCommand(() =>
                 {
                     Cars.Add(new Car()

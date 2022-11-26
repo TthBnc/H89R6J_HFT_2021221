@@ -19,6 +19,7 @@ namespace H89R6J_HFT_2021221.Repository
 
         public void Create(Brand brand)
         {
+            //brand.Id = ReadAll().Count() + 1;
             context.Add(brand);
             context.SaveChanges();
         }

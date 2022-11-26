@@ -14,6 +14,7 @@ namespace H89R6J_HFT_2021221.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Column("CarID", TypeName = "int")]
         public int Id { get; set; }
 
         [MaxLength(50)]
