@@ -10,13 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace H89R6J_HFT_2021221.WPFClient
+namespace H89R6J_HFT_2021221.WpfClient
 {
     public class RestService
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "car")
+        public RestService(string baseurl, string pingableEndpoint = "swagger")
         {
             bool isOk = false;
             do
