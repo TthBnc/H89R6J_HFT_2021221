@@ -67,7 +67,7 @@ namespace H89R6J_HFT_2021221.Data
                 entity.HasOne(car => car.Brand)
                     .WithMany(brand => brand.Cars)
                     .HasForeignKey(car => car.BrandId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Engine>(entity =>

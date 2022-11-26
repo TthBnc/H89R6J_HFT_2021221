@@ -39,24 +39,24 @@ namespace H89R6J_HFT_2021221.Endpoint.Controllers
         // POST /car
         //Create
         [HttpPost]
-        public void AddOne([FromBody] Car value)
+        public void AddOne([FromBody] Car car)
         {
-            logic.Create(value);
+            logic.Create(car);
         }
 
         // PUT /car
         //Update
         [HttpPut]
-        public void EditOne([FromBody] Car value)
+        public void EditOne([FromBody] Car car)
         {
-            logic.Update(value);
+            logic.Update(car);
         }
 
         // DELETE /car/{carId}
         [HttpDelete("{id}")]
-        public void DeleteOne([FromRoute] int carId)
+        public void DeleteOne(/*[FromRoute]*/ int id)
         {
-            logic.Delete(carId);
+            logic.Delete(id);
         }
     }
 }
